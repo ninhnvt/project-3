@@ -9,16 +9,19 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG      
+      #- docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      - docker build -t my-coworking .
+      #- docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG   
+      - docker tag my-coworking:latest 166390992966.dkr.ecr.us-east-1.amazonaws.com/my-coworking:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      #- docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - docker push 166390992966.dkr.ecr.us-east-1.amazonaws.com/my-coworking:latest
       - echo Tagging the image as latest...
-      - docker tag $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/coworking:$BUILD_NUMBER $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
+      #- docker tag $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/coworking:$BUILD_NUMBER $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
+      #- docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
 
 artifacts:
   files:
