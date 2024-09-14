@@ -46,7 +46,7 @@ spec:
           timeoutSeconds: 5
         envFrom:
         - configMapRef:
-            name: configmap
+            name: my-configmap
         env:
         - name: DB_PASSWORD
           valueFrom:
