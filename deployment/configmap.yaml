@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: my-configmap
 data:
-  DB_NAME: coworking_db
-  DB_USER: ninhnvt
+  DB_NAME: coworking
+  DB_USER: coworking
   DB_HOST: "postgresql-service.default.svc.cluster.local"
   DB_PORT: 5432
