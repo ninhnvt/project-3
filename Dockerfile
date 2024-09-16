@@ -9,7 +9,6 @@ WORKDIR /usr/src/app
 COPY analytics .
 
 RUN pip install -r requirements.txt
-
 ENV DB_USERNAME=coworking
 ENV DB_PASSWORD=coworking!
 ENV DB_HOST=127.0.0.1
